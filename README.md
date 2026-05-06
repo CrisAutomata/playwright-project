@@ -1,18 +1,141 @@
-test result:
-3/3 fails:
-  { cat: 'Popular', title: 'Doc', type: 'Movie', genres: 'Animation', fromYear: 2020, toYear: 2022, rating: 1, paging: 'first' },
-  { cat: 'Trend', title: 'Doc', type: 'TV Shows', genres: 'Comedy', fromYear: 2020, toYear: 2022, rating: 5, paging: 'next' },
-  { cat: 'Newest', title: 'Doc', type: 'Movie', genres: 'Animation, Comedy', fromYear: 2020, toYear: 2022, rating: 4, paging: 'last' }
 
-  The filter and the paging is not work as expect
+# Overview
+
+To test different filter combinations, we can use test.each to run the same test with different data sets
+
+This allows us to easily add more test cases by simply adding more objects to the array without having to duplicate the test code
+
+Parameters include category, search query, type, genre, year range, rating, and pagination to cover various filter combinations and ensure the filtering functionality works correctly under different scenarios
+
+It's scalable and maintainable as we can easily add more test cases by adding more objects to the array without having to write new test code for each case
+
+Using
+
+# Test Report & CI Plan
 
 
-browser API usage:
-I have used { waitUntil: 'networkidle' } to ensure page is fully loaded before performing any actions because the networkidle event is triggered when there are no more than 0 network connections for at least 500 ms, it ensures that all resources (like images, scripts, etc.) are fully loaded before the test continues. This can help prevent flaky tests that might occur if the test tries to interact with elements that haven't fully loaded yet.
+## ❌ Test Results
 
+All test cases failed (3/3):
 
+### Case 1
 
-plan with CI:
--integrate with env deploy pipeline
--run schedully at night 
--step: select vm(Ubuntu), set up node runtime, clone code, install dependencies, run command, save artifact: test-result(Playwright built-in or Allure)
+```
+{
+  cat: 'Popular',
+  title: 'Doc',
+  type: 'Movie',
+  genres: 'Animation',
+  fromYear: 2020,
+  toYear: 2022,
+  rating: 1,
+  paging: 'first'
+}
+```
+
+### Case 2
+
+```
+{
+  cat: 'Trend',
+  title: 'Doc',
+  type: 'TV Shows',
+  genres: 'Comedy',
+  fromYear: 2020,
+  toYear: 2022,
+  rating: 5,
+  paging: 'next'
+}
+```
+
+### Case 3
+
+```
+{
+  cat: 'Newest',
+  title: 'Doc',
+  type: 'Movie',
+  genres: 'Animation, Comedy',
+  fromYear: 2020,
+  toYear: 2022,
+  rating: 4,
+  paging: 'last'
+}
+```
+
+### Issue Summary
+
+* Filtering functionality is **not working as expected**
+* Pagination controls (`first`, `next`, `last`) are **not behaving correctly**
+
+---
+
+## Browser Automation Strategy
+
+To improve test stability, the following Playwright option is used:
+
+```js
+{ waitUntil: 'networkidle' }
+```
+
+### Why this approach?
+
+* Waits until **no network connections for at least 500ms**
+* Ensures:
+
+  * All scripts are loaded
+  * UI is fully rendered
+  * Reduces flaky test failures
+
+---
+
+## CI Integration Plan
+
+### Pipeline Goals
+
+* Automate test execution
+* Ensure reliability across deployments
+* Provide test artifacts for analysis
+
+### CI Steps
+
+1. **Trigger**
+
+   * Integrate with deployment pipeline
+   * Scheduled nightly runs
+
+2. **Environment Setup**
+
+   * Use Ubuntu VM
+   * Install Node.js runtime
+
+3. **Execution Flow**
+
+   ```bash
+   git clone <repository>
+   cd <project>
+   npm install
+   npm run test
+   ```
+
+4. **Artifacts**
+
+   * Store test results:
+
+     * Playwright built-in reports
+     * or Allure reports
+
+---
+
+## Notes / Recommendations
+
+* Investigate:
+
+  * Filter logic (likely mismatch between UI state & query params)
+  * Pagination state handling (possible async timing or incorrect selectors)
+* Consider adding:
+
+  * Explicit waits for UI state (not just network idle)
+  * Assertions on API responses (if applicable)
+
+---

@@ -62,12 +62,13 @@ export class HomePage extends BasePage {
 
   async selectPage(page: string) {
     const pagination: Locator = this.page.locator('//div[@id="react-paginate"]');
+    await pagination.scrollIntoViewIfNeeded();
     switch (page) {
       case 'first':
         await pagination.locator('li').first().click();
         break;
       case 'next':
-        await pagination.locator("//li[@class='Next']").click();
+        await pagination.locator("//li[normalize-space()='Next']").click();
         break;
       case 'last':
         await pagination.locator('li').last().click();
@@ -87,11 +88,11 @@ export class HomePage extends BasePage {
       const actualName = (await result.locator('xpath=./p[1]').innerText());
       const actualGenre = (await result.locator('xpath=./p[2]').innerText()).split(',')[0].trim();
       const actualYear = (await result.locator('xpath=./p[2]').innerText()).split(',')[1].trim();
-      // verify name contains search query, genre matches selected genre, year is within selected range
-      expect(actualName).toContain(title);
-      expect(genre.toString()).toContain(actualGenre);
-      expect(parseInt(actualYear)).toBeGreaterThanOrEqual(fromYear);
-      expect(parseInt(actualYear)).toBeLessThanOrEqual(toYear);
+      //soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure
+      expect.soft(actualName).toContain(title);
+      expect.soft(genre.toString()).toContain(actualGenre);
+      expect.soft(parseInt(actualYear)).toBeGreaterThanOrEqual(fromYear);
+      expect.soft(parseInt(actualYear)).toBeLessThanOrEqual(toYear);
     }
   }
 }
