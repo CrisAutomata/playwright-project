@@ -9,7 +9,7 @@ Parameters include category, search query, type, genre, year range, rating, and 
 
 It's scalable and maintainable as we can easily add more test cases by adding more objects to the array without having to write new test code for each case
 
-Using
+Using soft assertions allows us to verify all results and report all failures at the end instead of stopping at the first failure, providing a more comprehensive view of any issues with the filtering functionality across all results.
 
 # Test Report & CI Plan
 
