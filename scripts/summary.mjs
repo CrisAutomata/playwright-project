@@ -103,28 +103,62 @@ async function generateSummary() {
     core.summary.addTable([
         [
             { data: 'Suite', header: true },
-            { data: 'Passed', header: true },
-            { data: 'Failed', header: true },
-            { data: 'Skipped', header: true },
+            { data: '✅ Passed', header: true },
+            { data: '❌ Failed', header: true },
+            { data: '⏭ Skipped', header: true },
         ],
         [
             'E2E Tests',
-            `✅ ${passed}`,
+            ` ${passed}`,
             `❌ ${failed}`,
             `⏭ ${skipped}`,
         ],
     ]);
 
-    // Mermaid pie chart
-    core.summary.addHeading('Result Chart', 2);
+    // barchart
+    core.summary.addRaw(`
+        <div style="
+        width: 300px;
+        height: 24px;
+        display: flex;
+        border-radius: 6px;
+        overflow: hidden;
+        font-weight: bold;
+        color: white;
+        ">
+        <div style="
+            width: 10%;
+            background: #ef4444;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        ">
+            1
+        </div>
 
-    core.summary.addCodeBlock(`
-pie
-    title Test Results
-    "Passed" : ${passed}
-    "Failed" : ${failed}
-    "Skipped" : ${skipped}
-`, 'mermaid');
+        <div style="
+            width: 90%;
+            background: #22c55e;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        ">
+            15
+        </div>
+        </div>
+        `);
+
+    // // Mermaid pie chart
+    // core.summary.addHeading('Result Chart', 2);
+
+    // core.summary.addCodeBlock(`
+    // pie
+    //     title Test Results
+    //     "Passed" : ${passed}
+    //     "Failed" : ${failed}
+    //     "Skipped" : ${skipped}
+    // `, 'mermaid');
+
 
     // Persistent Failures
     core.summary.addHeading('Persistent Failures', 2);
