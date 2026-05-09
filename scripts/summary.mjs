@@ -110,43 +110,16 @@ async function generateSummary() {
         [
             'E2E Tests',
             ` ${passed}`,
-            `❌ ${failed}`,
-            `⏭ ${skipped}`,
+            ` ${failed}`,
+            ` ${skipped}`,
         ],
     ]);
 
     // barchart
-    core.summary.addRaw(`
-        <div style="
-        width: 300px;
-        height: 24px;
-        display: flex;
-        border-radius: 6px;
-        overflow: hidden;
-        font-weight: bold;
-        color: white;
-        ">
-        <div style="
-            width: 10%;
-            background: #ef4444;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        ">
-            1
-        </div>
-
-        <div style="
-            width: 90%;
-            background: #22c55e;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        ">
-            15
-        </div>
-        </div>
-        `);
+    core.summary.addHeading('Test Results', 2);
+    core.summary.addRaw(
+        createBar(passed, failed)
+    );
 
     // // Mermaid pie chart
     // core.summary.addHeading('Result Chart', 2);
@@ -158,6 +131,17 @@ async function generateSummary() {
     //     "Failed" : ${failed}
     //     "Skipped" : ${skipped}
     // `, 'mermaid');
+
+    //piechart
+    core.summary
+        .addHeading('Test Results', 2)
+        .addRaw(
+            createPieChart({
+                passed,
+                failed,
+                skipped,
+            })
+        );
 
 
     // Persistent Failures
@@ -208,6 +192,179 @@ ${test.error}
     }
 
     await core.summary.write();
+}
+
+function createBar(passed, failed) {
+
+    const total = passed + failed;
+
+    const passedPercent =
+        (passed / total) * 100;
+
+    const failedPercent =
+        (failed / total) * 100;
+
+    return `
+  <div style="
+    width: 400px;
+    height: 28px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: sans-serif;
+  ">
+    <div style="
+      width: ${failedPercent}%;
+      background: #ef4444;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+    ">
+      ${failed}
+    </div>
+
+    <div style="
+      width: ${passedPercent}%;
+      background: #22c55e;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+    ">
+      ${passed}
+    </div>
+  </div>
+  `;
+}
+
+function createPieChart({
+    passed,
+    failed,
+    skipped = 0,
+    size = 180,
+}) {
+
+    const total =
+        passed + failed + skipped;
+
+    if (total === 0) {
+        return '<p>No test data</p>';
+    }
+
+    const passedDeg =
+        (passed / total) * 360;
+
+    const failedDeg =
+        (failed / total) * 360;
+
+    const skippedDeg =
+        (skipped / total) * 360;
+
+    return `
+  <div style="
+    display:flex;
+    align-items:center;
+    gap:24px;
+    font-family:sans-serif;
+  ">
+
+    <!-- PIE -->
+    <div style="
+      width:${size}px;
+      height:${size}px;
+      border-radius:50%;
+      background:
+        conic-gradient(
+          #22c55e 0deg ${passedDeg}deg,
+          #ef4444 ${passedDeg}deg ${passedDeg + failedDeg}deg,
+          #facc15 ${passedDeg + failedDeg}deg 360deg
+        );
+      position:relative;
+    ">
+
+      <!-- INNER HOLE -->
+      <div style="
+        position:absolute;
+        inset:22%;
+        background:white;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+        font-weight:bold;
+      ">
+        <div style="font-size:28px;">
+          ${total}
+        </div>
+
+        <div style="
+          font-size:12px;
+          color:#666;
+        ">
+          TOTAL
+        </div>
+      </div>
+    </div>
+
+    <!-- LEGEND -->
+    <div style="
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      font-size:14px;
+    ">
+
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:8px;
+      ">
+        <div style="
+          width:12px;
+          height:12px;
+          border-radius:999px;
+          background:#22c55e;
+        "></div>
+
+        <strong>${passed}</strong> Passed
+      </div>
+
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:8px;
+      ">
+        <div style="
+          width:12px;
+          height:12px;
+          border-radius:999px;
+          background:#ef4444;
+        "></div>
+
+        <strong>${failed}</strong> Failed
+      </div>
+
+      <div style="
+        display:flex;
+        align-items:center;
+        gap:8px;
+      ">
+        <div style="
+          width:12px;
+          height:12px;
+          border-radius:999px;
+          background:#facc15;
+        "></div>
+
+        <strong>${skipped}</strong> Skipped
+      </div>
+
+    </div>
+  </div>
+  `;
 }
 
 generateSummary();
