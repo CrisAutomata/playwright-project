@@ -156,17 +156,6 @@ async function generateSummary() {
     //     "Skipped" : ${skipped}
     // `, 'mermaid');
 
-    //piechart
-    core.summary
-        .addHeading('Test Results', 2)
-        .addRaw(
-            createPieChart({
-                passed,
-                failed,
-                skipped,
-            })
-            , true
-        );
 
 
     // Persistent Failures
