@@ -111,9 +111,9 @@ async function generateSummary() {
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
     core.summary
-        .addRaw(`Passed ${'🟩'.repeat(passSquares)} ${passPct}%\n\n`)
-        .addRaw(`Failed   ${'🟥'.repeat(failSquares)} ${failPct}%\n`)
-        .addRaw(`Skipped ${'🟨'.repeat(skipSquares)} ${skipPct}%\n`)
+        .addRaw(`|${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
+        .addRaw(`|${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
+        .addRaw(`|${'🟨'.repeat(skipSquares)} ${skipPct}% Skipped\n`)
         .write();
 
 
@@ -122,9 +122,9 @@ async function generateSummary() {
     core.summary.addTable([
         [
             { data: 'Total', header: true },
-            { data: '🟢 Passed', header: true },
-            { data: '🔴 Failed', header: true },
-            { data: '🟡 Skipped', header: true },
+            { data: '✅ Passed', header: true },
+            { data: '♦️ Failed', header: true },
+            { data: '🟠 Skipped', header: true },
         ],
         [
             ` ${total}`,
