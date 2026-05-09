@@ -2,6 +2,23 @@ name: Playwright Tests
 on:
     # This workflow is triggered manually from the Actions tab in GitHub
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - production
+        default: dev
+
+      branch:
+        description: 'Branch to run on'
+        required: true
+        type: string
+        default: main
+        
   push:
     branches: [ main ]  # Run on pushes to the main branch
   
