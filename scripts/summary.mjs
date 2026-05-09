@@ -92,7 +92,7 @@ function formatDuration(ms) {
     return `${m}m ${s}s`;
 }
 
-function generateSummary() {
+async function generateSummary() {
 
     // Title
     core.summary.addHeading('Playwright Test Summary');
@@ -186,4 +186,4 @@ ${test.error}
 
 
 
-generateSummary();
+// generateSummary();
