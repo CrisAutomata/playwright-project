@@ -92,7 +92,7 @@ function formatDuration(ms) {
     return `${m}m ${s}s`;
 }
 
-async function generateSummary() {
+function generateSummary() {
 
     // Title
     core.summary.addHeading('Playwright Test Summary');
@@ -112,7 +112,7 @@ async function generateSummary() {
 
     core.summary
         .addRaw(`Passed ${'🟩'.repeat(passSquares)} ${passPct}%\n\n`)
-        .addRaw(`Failed ${'🟥'.repeat(failSquares)} ${failPct}%\n\n`)
+        .addRaw(`Failed   ${'🟥'.repeat(failSquares)} ${failPct}%\n`)
         .addRaw(`Skipped ${'🟨'.repeat(skipSquares)} ${skipPct}%\n`)
         .write();
 
@@ -185,134 +185,5 @@ ${test.error}
 }
 
 
-
-
-function createPieChart({
-    passed,
-    failed,
-    skipped = 0,
-    size = 180,
-}) {
-
-    const total =
-        passed + failed + skipped;
-
-    if (total === 0) {
-        return '<p>No test data</p>';
-    }
-
-    const passedDeg =
-        (passed / total) * 360;
-
-    const failedDeg =
-        (failed / total) * 360;
-
-    const skippedDeg =
-        (skipped / total) * 360;
-
-    return `
-  <div style="
-    display:flex;
-    align-items:center;
-    gap:24px;
-    font-family:sans-serif;
-  ">
-
-    <!-- PIE -->
-    <div style="
-      width:${size}px;
-      height:${size}px;
-      border-radius:50%;
-      background:
-        conic-gradient(
-          #22c55e 0deg ${passedDeg}deg,
-          #ef4444 ${passedDeg}deg ${passedDeg + failedDeg}deg,
-          #facc15 ${passedDeg + failedDeg}deg 360deg
-        );
-      position:relative;
-    ">
-
-      <!-- INNER HOLE -->
-      <div style="
-        position:absolute;
-        inset:22%;
-        background:white;
-        border-radius:50%;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        flex-direction:column;
-        font-weight:bold;
-      ">
-        <div style="font-size:28px;">
-          ${total}
-        </div>
-
-        <div style="
-          font-size:12px;
-          color:#666;
-        ">
-          TOTAL
-        </div>
-      </div>
-    </div>
-
-    <!-- LEGEND -->
-    <div style="
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      font-size:14px;
-    ">
-
-      <div style="
-        display:flex;
-        align-items:center;
-        gap:8px;
-      ">
-        <div style="
-          width:12px;
-          height:12px;
-          border-radius:999px;
-          background:#22c55e;
-        "></div>
-
-        <strong>${passed}</strong> Passed
-      </div>
-
-      <div style="
-        display:flex;
-        align-items:center;
-        gap:8px;
-      ">
-        <div style="
-          width:12px;
-          height:12px;
-          border-radius:999px;
-          background:#ef4444;
-        "></div>
-
-        <strong>${failed}</strong> Failed
-      </div>
-
-      <div style="
-        display:flex;
-        align-items:center;
-        gap:8px;
-      ">
-        <div style="
-          width:12px;
-          height:12px;
-          border-radius:999px;
-          background:#facc15;
-        "></div>
-
-        <strong>${skipped}</strong> Skipped
-      </div>
-
-    </div>
-  </div>
-  `;
-}
 
 generateSummary();
