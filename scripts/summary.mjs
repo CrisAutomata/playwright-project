@@ -98,10 +98,6 @@ async function generateSummary() {
     core.summary.addHeading('Playwright Test Summary');
 
     //Summary Ditribution
-    //Passed  ████████████████████ 120
-    // Failed  █ 3
-    // Skipped █ 1
-
     core.summary.addHeading('Summary Distribution', 2)
     const total = passed + failed + skipped;
 
