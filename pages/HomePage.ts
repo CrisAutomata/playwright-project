@@ -95,4 +95,17 @@ export class HomePage extends BasePage {
       expect.soft(parseInt(actualYear)).toBeLessThanOrEqual(toYear);
     }
   }
+
+  async verifyResults2(cat: string, title: string) {
+    //get all result items
+    const resultTags: Locator = this.page.locator('//div[./img][not(./input)]');
+    for (let i = 0; i < await resultTags.count(); i++) {
+      // for each result, verify it matches the filters
+      // extract name, genre, year from result
+      const result = resultTags.nth(i);
+      const actualName = (await result.locator('xpath=./p[1]').innerText());
+      //soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure
+      expect.soft(actualName).toContain(title);
+    }
+  }
 }

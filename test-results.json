@@ -1,0 +1,768 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\playwright.config.ts",
+    "rootDir": "C:/Users/cam.nguyen/OneDrive - Orient/Documents/local-codebase/playwright-project/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/cam.nguyen/OneDrive - Orient/Documents/local-codebase/playwright-project/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/cam.nguyen/OneDrive - Orient/Documents/local-codebase/playwright-project/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results.json"
+        }
+      ],
+      [
+        "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "resultsDir": "./allure-results",
+          "environmentInfo": {
+            "node_version": "v25.8.1"
+          }
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "example.spec.ts",
+      "file": "example.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Filter by Popular, Doc, Movie, 2020-2022, 1, Animation, first",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 16648,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"The Island of Giant Insects\"\u001b[39m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"The Island of Giant Insects\"\u001b[39m\n    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\n    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\n    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5",
+                    "location": {
+                      "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                      "column": 31,
+                      "line": 92
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 31,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"The Island of Giant Insects\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 31,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"Haikara-san: Here Comes Miss Modern Part 2\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2018\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 31,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"High School Fleet Movie\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 31,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"Human Lost\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Action\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2019\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 31,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"The Last Bath\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Drama\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 31,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"Pretty Cure Miracle Leap: A Wonderful Day with Everyone\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Documentary\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 95
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m2022\u001b[39m\nReceived:    \u001b[31m2024\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:95\n\n\u001b[0m \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\n \u001b[90m 98 |\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:95:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Drama\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2001\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Western\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2009\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Western\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2009\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Documentary\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Documentary\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Documentary\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2011\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 31,
+                        "line": 92
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"The DOC\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Documentary\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2012\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Crime\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m1956\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Comedy\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m1957\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Documentary\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2014\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"War\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2016\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Documentary\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 94
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: >= \u001b[32m2020\u001b[39m\nReceived:    \u001b[31m2019\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:94\n\n\u001b[0m \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:94:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 37,
+                        "line": 93
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Western\"\u001b[39m\nReceived string:    \u001b[31m\"Animation\"\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:93\n\n\u001b[0m \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n \u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:93:37)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    },
+                    {
+                      "location": {
+                        "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                        "column": 41,
+                        "line": 95
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThanOrEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: <= \u001b[32m2022\u001b[39m\nReceived:    \u001b[31m2023\u001b[39m\n\n\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:95\n\n\u001b[0m \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 96 |\u001b[39m     }\n \u001b[90m 97 |\u001b[39m   }\n \u001b[90m 98 |\u001b[39m\u001b[0m\n\u001b[2m    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:95:41)\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\u001b[22m\n\u001b[2m    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5\u001b[22m"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to login page",
+                      "duration": 2328
+                    },
+                    {
+                      "title": "Select category",
+                      "duration": 78
+                    },
+                    {
+                      "title": "Type search query",
+                      "duration": 25
+                    },
+                    {
+                      "title": "Select type",
+                      "duration": 133
+                    },
+                    {
+                      "title": "Select genre",
+                      "duration": 139
+                    },
+                    {
+                      "title": "Select year range",
+                      "duration": 465
+                    },
+                    {
+                      "title": "Select rating",
+                      "duration": 80
+                    },
+                    {
+                      "title": "Select page and verify results",
+                      "duration": 349
+                    },
+                    {
+                      "title": "Verify results",
+                      "duration": 1339,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"The Island of Giant Insects\"\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected substring: \u001b[32m\"Doc\"\u001b[39m\nReceived string:    \u001b[31m\"The Island of Giant Insects\"\u001b[39m\n    at HomePage.verifyResults (C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts:92:31)\n    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:54:7\n    at C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\tests\\example.spec.ts:52:5",
+                        "location": {
+                          "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                          "column": 31,
+                          "line": 92
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\pages\\HomePage.ts:92\n\n\u001b[0m \u001b[90m 90 |\u001b[39m       \u001b[36mconst\u001b[39m actualYear \u001b[33m=\u001b[39m (\u001b[36mawait\u001b[39m result\u001b[33m.\u001b[39mlocator(\u001b[32m'xpath=./p[2]'\u001b[39m)\u001b[33m.\u001b[39minnerText())\u001b[33m.\u001b[39msplit(\u001b[32m','\u001b[39m)[\u001b[35m1\u001b[39m]\u001b[33m.\u001b[39mtrim()\u001b[33m;\u001b[39m\n \u001b[90m 91 |\u001b[39m       \u001b[90m//soft assertions is used to verify all results and report all failures at the end instead of stopping at first failure\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 92 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(actualName)\u001b[33m.\u001b[39mtoContain(title)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 93 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(genre\u001b[33m.\u001b[39mtoString())\u001b[33m.\u001b[39mtoContain(actualGenre)\u001b[33m;\u001b[39m\n \u001b[90m 94 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeGreaterThanOrEqual(fromYear)\u001b[33m;\u001b[39m\n \u001b[90m 95 |\u001b[39m       expect\u001b[33m.\u001b[39msoft(parseInt(actualYear))\u001b[33m.\u001b[39mtoBeLessThanOrEqual(toYear)\u001b[33m;\u001b[39m\u001b[0m"
+                      }
+                    }
+                  ],
+                  "startTime": "2026-05-09T10:20:56.372Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\test-results\\example-Filter-by-Popular--3f935-2020-2022-1-Animation-first-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\test-results\\example-Filter-by-Popular--3f935-2020-2022-1-Animation-first-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\test-results\\example-Filter-by-Popular--3f935-2020-2022-1-Animation-first-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\cam.nguyen\\OneDrive - Orient\\Documents\\local-codebase\\playwright-project\\pages\\HomePage.ts",
+                    "column": 31,
+                    "line": 92
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-7d06d2a35a237d25ebeb",
+          "file": "example.spec.ts",
+          "line": 16,
+          "column": 7
+        },
+        {
+          "title": "Filter by Trend, Doc, TV Shows, 2020-2022, 5, Comedy, next",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 13040,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to login page",
+                      "duration": 2799
+                    },
+                    {
+                      "title": "Select category",
+                      "duration": 68
+                    },
+                    {
+                      "title": "Type search query",
+                      "duration": 18
+                    },
+                    {
+                      "title": "Select type",
+                      "duration": 107
+                    },
+                    {
+                      "title": "Select genre",
+                      "duration": 253
+                    },
+                    {
+                      "title": "Select year range",
+                      "duration": 265
+                    },
+                    {
+                      "title": "Select rating",
+                      "duration": 74
+                    },
+                    {
+                      "title": "Select page and verify results",
+                      "duration": 313
+                    },
+                    {
+                      "title": "Verify results",
+                      "duration": 17
+                    }
+                  ],
+                  "startTime": "2026-05-09T10:20:56.366Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-9d3ad6f1ceba9148ca80",
+          "file": "example.spec.ts",
+          "line": 16,
+          "column": 7
+        },
+        {
+          "title": "Filter by Newest, Doc, Movie, 2020-2022, 4, Animation, Comedy, last",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 10938,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to login page",
+                      "duration": 2855
+                    },
+                    {
+                      "title": "Select category",
+                      "duration": 60
+                    },
+                    {
+                      "title": "Type search query",
+                      "duration": 18
+                    },
+                    {
+                      "title": "Select type",
+                      "duration": 107
+                    },
+                    {
+                      "title": "Select genre",
+                      "duration": 308
+                    },
+                    {
+                      "title": "Select year range",
+                      "duration": 258
+                    },
+                    {
+                      "title": "Select rating",
+                      "duration": 76
+                    },
+                    {
+                      "title": "Select page and verify results",
+                      "duration": 158
+                    },
+                    {
+                      "title": "Verify results",
+                      "duration": 11
+                    }
+                  ],
+                  "startTime": "2026-05-09T10:21:09.636Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-5e9cd6042a22d5d7e12b",
+          "file": "example.spec.ts",
+          "line": 16,
+          "column": 7
+        },
+        {
+          "title": "Filter by Newest, Doc",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10047,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to login page",
+                      "duration": 2443
+                    }
+                  ],
+                  "startTime": "2026-05-09T10:21:16.352Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-0af9f1d170ecce6ff306",
+          "file": "example.spec.ts",
+          "line": 65,
+          "column": 7
+        },
+        {
+          "title": "Filter by Trend, Doc",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 9858,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to login page",
+                      "duration": 1831
+                    }
+                  ],
+                  "startTime": "2026-05-09T10:21:20.598Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-c455c9565282b45087a5",
+          "file": "example.spec.ts",
+          "line": 65,
+          "column": 7
+        },
+        {
+          "title": "Filter by Trend, ghj",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 10730,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "Navigate to login page",
+                      "duration": 2920
+                    }
+                  ],
+                  "startTime": "2026-05-09T10:21:26.615Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a30a6eba6312f6b87ea5-2026454b4103a2d74d4f",
+          "file": "example.spec.ts",
+          "line": 65,
+          "column": 7
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-05-09T10:20:55.454Z",
+    "duration": 41998.483,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -2,6 +2,23 @@ name: Playwright Tests
 on:
     # This workflow is triggered manually from the Actions tab in GitHub
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - production
+        default: dev
+
+      branch:
+        description: 'Branch to run on'
+        required: true
+        type: string
+        default: main
+        
   push:
     branches: [ main ]  # Run on pushes to the main branch
   
@@ -17,14 +34,19 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-    - name: Adding markdown
-      run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    # - name: Adding markdown
+    #   run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Install Node
+      uses: actions/setup-node@v4
       with:
         node-version: lts/*
+
     - name: Install dependencies
       run: npm ci
+
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
@@ -32,6 +54,14 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
       continue-on-error: true
+
+    #check the results json is generated and wait for 5 seconds
+    - name: Check results.json
+      run: ls
+
+
+    - name: Generate summary
+      run: node scripts/summary.mjs
 
     - name: Generate Allure Report
       run: npx allure generate

@@ -13,7 +13,7 @@ import { HomePage } from '../pages/HomePage';
   { cat: 'Trend', title: 'Doc', type: 'TV Shows', genres: 'Comedy', fromYear: 2020, toYear: 2022, rating: 5, paging: 'next' },
   { cat: 'Newest', title: 'Doc', type: 'Movie', genres: 'Animation, Comedy', fromYear: 2020, toYear: 2022, rating: 4, paging: 'last' }
 ].forEach(({ cat, title, type, fromYear, toYear, rating, genres, paging }) => {
-  test(`Filter by ${cat}, ${title}, ${type}, ${fromYear}-${toYear}, ${rating}, ${genres}, ${paging}`, async ({ page }) => {
+  test(`Indicator 1: ${cat}, ${title}, ${type}, ${fromYear}-${toYear}, ${rating}, ${genres}, ${paging}`, async ({ page }) => {
     const home = new HomePage(page);
     // goto home page
     await test.step('Navigate to login page', async () => {
@@ -56,3 +56,27 @@ import { HomePage } from '../pages/HomePage';
 
   })
 });
+
+[
+  { cat: 'Newest', title: 'Doc' },
+  { cat: 'Trend', title: 'Doc' },
+  { cat: 'Trend', title: 'ghj' },
+  { cat: 'Trend', title: 'gj' },
+  { cat: 'Trend', title: 'ghdf' },
+  { cat: 'Trend', title: 'ghggj' },
+  { cat: 'Trend', title: 'ghjg' },
+  { cat: 'Trend', title: 'ghxj' },
+  { cat: 'Trend', title: 'gchhj' },
+  { cat: 'Trend', title: 'ghghj' },
+].forEach(({ cat, title }) => {
+  test(`Indicator 2:${title} ${cat}`, async ({ page }) => {
+    const home = new HomePage(page);
+    // goto home page
+    await test.step('Navigate to login page', async () => {
+      await home.goto();
+    });
+    await home.typeSearch(title);
+  })
+});
+
+
