@@ -98,7 +98,7 @@ async function generateSummary() {
     core.summary.addHeading('MOA Test Summary');
 
     //Summary Ditribution
-    core.summary.addHeading('Distribution', 2)
+
     const total = passed + failed + skipped;
 
     const WIDTH = 20; // total squares in the bar
@@ -110,8 +110,7 @@ async function generateSummary() {
     const failPct = ((failed / total) * 100).toFixed(2);
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
-
-    core.summary.addRaw(`PASS RATE: ${passPct}%\n\n`);
+    core.summary.addHeading(`PASSING RATE: ${passPct}%)`, 2)
     core.summary
         .addRaw(`▶︎${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
         .addRaw(`▶︎${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
