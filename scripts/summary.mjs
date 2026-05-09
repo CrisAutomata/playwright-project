@@ -111,7 +111,7 @@ async function generateSummary() {
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
 
-    core.summary.addRaw(`Passing Rate: ${passPct}%\n`);
+    core.summary.addRaw(`PASS RATE: ${passPct}%\n`);
     core.summary
         .addRaw(`►${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
         .addRaw(`►${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
