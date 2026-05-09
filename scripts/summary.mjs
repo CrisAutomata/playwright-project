@@ -186,4 +186,6 @@ ${test.error}
 
 
 
-// generateSummary();
+
+
+generateSummary();
