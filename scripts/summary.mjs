@@ -95,10 +95,10 @@ function formatDuration(ms) {
 async function generateSummary() {
 
     // Title
-    core.summary.addHeading('Playwright Test Summary');
+    core.summary.addHeading('MOA Test Summary');
 
     //Summary Ditribution
-    core.summary.addHeading('Summary Distribution', 2)
+    core.summary.addHeading('Distribution', 2)
     const total = passed + failed + skipped;
 
     const WIDTH = 20; // total squares in the bar
@@ -111,14 +111,14 @@ async function generateSummary() {
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
     core.summary
-        .addRaw(`|${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
-        .addRaw(`|${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
-        .addRaw(`|${'🟨'.repeat(skipSquares)} ${skipPct}% Skipped\n`)
+        .addRaw(`>${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
+        .addRaw(`>${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
+        .addRaw(`>${'🟨'.repeat(skipSquares)} ${skipPct}% Skipped\n`)
         .write();
 
 
     // Summary table
-    core.summary.addHeading('Detailed Table', 2);
+    core.summary.addHeading('Summary Table', 2);
     core.summary.addTable([
         [
             { data: 'Total', header: true },
@@ -132,33 +132,6 @@ async function generateSummary() {
             ` ${failed}`,
             ` ${skipped}`,
         ],
-    ]);
-
-    // Persistent Failures
-    core.summary.addHeading('Persistent Failures', 2);
-
-    if (failedTests.length === 0) {
-        core.summary.addRaw('✅ No failed tests\n');
-    } else {
-        core.summary.addList(
-            failedTests.map(t => t.name)
-        );
-    }
-
-    // Top Slow Tests
-    core.summary.addHeading('Top Slow Tests', 2);
-
-    core.summary.addTable([
-        [
-            { data: 'Test', header: true },
-            { data: 'Duration', header: true },
-        ],
-        ...slowTests
-            .slice(0, 5)
-            .map(t => [
-                t.name,
-                formatDuration(t.duration),
-            ]),
     ]);
 
     // Stack traces
@@ -180,6 +153,34 @@ ${test.error}
 `);
         }
     }
+
+    // // Persistent Failures
+    // core.summary.addHeading('Persistent Failures', 2);
+
+    // if (failedTests.length === 0) {
+    //     core.summary.addRaw('✅ No failed tests\n');
+    // } else {
+    //     core.summary.addList(
+    //         failedTests.map(t => t.name)
+    //     );
+    // }
+
+    // Top Slow Tests
+    core.summary.addHeading('Top Slow Tests', 2);
+    core.summary.addTable([
+        [
+            { data: 'Test', header: true },
+            { data: 'Duration', header: true },
+        ],
+        ...slowTests
+            .slice(0, 5)
+            .map(t => [
+                t.name,
+                formatDuration(t.duration),
+            ]),
+    ]);
+
+
 
     // await core.summary.write();
 }
