@@ -103,9 +103,9 @@ async function generateSummary() {
     core.summary.addTable([
         [
             { data: 'Suite', header: true },
-            { data: '✅ Passed', header: true },
-            { data: '❌ Failed', header: true },
-            { data: '⏭ Skipped', header: true },
+            { data: '🟢 Passed', header: true },
+            { data: '🔴 Failed', header: true },
+            { data: '🟡 Skipped', header: true },
         ],
         [
             'E2E Tests',
@@ -117,9 +117,33 @@ async function generateSummary() {
 
     // barchart
     core.summary.addHeading('Test Results', 2);
-    core.summary.addRaw(
-        createBar(passed, failed), true
-    );
+    core.summary.addRaw(`
+<table>
+  <tr>
+    <td
+      style="
+        background:#ef4444;
+        color:white;
+        padding:6px 12px;
+        border-radius:6px 0 0 6px;
+      "
+    >
+      ${failed}
+    </td>
+
+    <td
+      style="
+        background:#22c55e;
+        color:white;
+        padding:6px 120px;
+        border-radius:0 6px 6px 0;
+      "
+    >
+      ${passed}
+    </td>
+  </tr>
+</table>
+`, true);
 
     // // Mermaid pie chart
     // core.summary.addHeading('Result Chart', 2);
