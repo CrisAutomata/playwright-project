@@ -74,22 +74,6 @@ function walkSuites(suites, parent = '') {
     }
 }
 
-function calculateTheBlock(value) {
-
-}
-
-function createBarChart(passed, failed, skipped) {
-
-
-    const markdown = `
-## Test Results
-
-Passed  ${createBar(passed, total, '🟩')} ${passed}
-Failed  ${createBar(failed, total, '🟥')} ${failed}
-Skipped ${createBar(skipped, total, '🟨')} ${skipped}
-`;
-}
-
 walkSuites(report.suites);
 
 slowTests.sort((a, b) => b.duration - a.duration);
@@ -131,8 +115,8 @@ async function generateSummary() {
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
     core.summary
-        .addRaw(`Passed ${'🟩'.repeat(passSquares)} ${passPct}%\n`)
-        .addRaw(`Failed ${'🟥'.repeat(failSquares)} ${failPct}%\n`)
+        .addRaw(`Passed ${'🟩'.repeat(passSquares)} ${passPct}%\n\n`)
+        .addRaw(`Failed ${'🟥'.repeat(failSquares)} ${failPct}%\n\n`)
         .addRaw(`Skipped ${'🟨'.repeat(skipSquares)} ${skipPct}%\n`)
         .write();
 
