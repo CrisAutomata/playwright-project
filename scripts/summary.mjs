@@ -74,6 +74,22 @@ function walkSuites(suites, parent = '') {
     }
 }
 
+function calculateTheBlock(value) {
+
+}
+
+function createBarChart(passed, failed, skipped) {
+
+
+    const markdown = `
+## Test Results
+
+Passed  ${createBar(passed, total, '🟩')} ${passed}
+Failed  ${createBar(failed, total, '🟥')} ${failed}
+Skipped ${createBar(skipped, total, '🟨')} ${skipped}
+`;
+}
+
 walkSuites(report.suites);
 
 slowTests.sort((a, b) => b.duration - a.duration);
@@ -94,8 +110,6 @@ function formatDuration(ms) {
 
 async function generateSummary() {
 
-    const total = passed + failed + skipped;
-
     // Title
     core.summary.addHeading('Playwright Test Summary');
 
@@ -104,7 +118,23 @@ async function generateSummary() {
     // Failed  █ 3
     // Skipped █ 1
 
-    core.summary.addHeading('Summary Distribution', 2).createBarChart(passed, failed, skipped);
+    core.summary.addHeading('Summary Distribution', 2)
+    const total = passed + failed + skipped;
+
+    const WIDTH = 20; // total squares in the bar
+    const passSquares = Math.round((passed / total) * WIDTH);
+    const failSquares = Math.round((failed / total) * WIDTH);
+    const skipSquares = WIDTH - passSquares - failSquares;
+
+    const passPct = ((passed / total) * 100).toFixed(2);
+    const failPct = ((failed / total) * 100).toFixed(2);
+    const skipPct = ((skipped / total) * 100).toFixed(2);
+
+    core.summary
+        .addRaw(`Passed ${'🟩'.repeat(passSquares)} ${passPct}%\n`)
+        .addRaw(`Failed ${'🟥'.repeat(failSquares)} ${failPct}%\n`)
+        .addRaw(`Skipped ${'🟨'.repeat(skipSquares)} ${skipPct}%\n`)
+        .write();
 
 
     // Summary table
@@ -174,26 +204,8 @@ ${test.error}
     await core.summary.write();
 }
 
-function createBarChart(passed, failed, skipped) {
-    const total = passed + failed + skipped;
 
-    const markdown = `
-## Test Results
 
-Passed  ${createBar(passed, total, '🟩')} ${passed}
-Failed  ${createBar(failed, total, '🟥')} ${failed}
-Skipped ${createBar(skipped, total, '🟨')} ${skipped}
-`;
-}
-
-function createBar(value, total, color = '🟩') {
-    const width = 20;
-
-    const filled =
-        Math.round((value / total) * width);
-
-    return color.repeat(filled);
-}
 
 function createPieChart({
     passed,
