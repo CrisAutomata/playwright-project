@@ -118,7 +118,7 @@ async function generateSummary() {
         .write();
 
     // Summary table
-    core.summary.addHeading('Summary Table', 2);
+    core.summary.addHeading('Summary Results', 2);
     core.summary.addTable([
         [
             { data: 'Total', header: true },
@@ -134,9 +134,9 @@ async function generateSummary() {
         ],
         [
             `100%`,
-            ` ${(passed / total) * 100}%`,
-            ` ${(failed / total) * 100}%`,
-            ` ${(skipped / total) * 100}%`,
+            ` ${passPct}%`,
+            ` ${failPct}%`,
+            ` ${skipPct}%`,
         ],
 
     ]);
