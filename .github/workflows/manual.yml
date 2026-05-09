@@ -8,6 +8,8 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
+    - name: Adding markdown
+      run: echo '### Hello world! 🚀' >> $GITHUB_STEP_SUMMARY
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
