@@ -13,6 +13,7 @@
     "allure-playwright": "^3.7.2"
   },
   "dependencies": {
+    "@actions/core": "^3.0.1",
     "allure": "^3.7.0"
   }
 }
