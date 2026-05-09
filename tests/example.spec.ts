@@ -56,3 +56,20 @@ import { HomePage } from '../pages/HomePage';
 
   })
 });
+
+[
+  { cat: 'Newest', title: 'Doc' },
+  { cat: 'Trend', title: 'Doc' },
+  { cat: 'Trend', title: 'ghj' },
+].forEach(({ cat, title }) => {
+  test(`Filter by ${cat}, ${title}`, async ({ page }) => {
+    const home = new HomePage(page);
+    // goto home page
+    await test.step('Navigate to login page', async () => {
+      await home.goto();
+    });
+    await home.typeSearch(title);
+  })
+});
+
+
