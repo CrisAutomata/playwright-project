@@ -30,8 +30,13 @@ jobs:
 
     # Run the Playwright tests, failure does not cancel the workflow
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --reporter=json
       continue-on-error: true
+
+
+
+    - name: Generate summary
+      run: node scripts/summary.js
 
     - name: Generate Allure Report
       run: npx allure generate
