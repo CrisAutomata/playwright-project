@@ -112,9 +112,9 @@ async function generateSummary() {
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
     core.summary
-        .addRaw(`>${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
-        .addRaw(`>${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
-        .addRaw(`>${'🟨'.repeat(skipSquares)} ${skipPct}% Skipped\n`)
+        .addRaw(`►${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
+        .addRaw(`►${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
+        .addRaw(`►${'🟨'.repeat(skipSquares)} ${skipPct}% Skipped\n`)
         .write();
 
     // Summary table
