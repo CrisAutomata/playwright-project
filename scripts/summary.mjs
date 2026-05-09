@@ -181,7 +181,7 @@ ${test.error}
         }
     }
 
-    await core.summary.write();
+    // await core.summary.write();
 }
 
 
