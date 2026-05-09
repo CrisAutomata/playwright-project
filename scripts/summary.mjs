@@ -118,7 +118,7 @@ async function generateSummary() {
     // barchart
     core.summary.addHeading('Test Results', 2);
     core.summary.addRaw(
-        createBar(passed, failed)
+        createBar(passed, failed), true
     );
 
     // // Mermaid pie chart
@@ -141,6 +141,7 @@ async function generateSummary() {
                 failed,
                 skipped,
             })
+            , true
         );
 
 
