@@ -94,13 +94,24 @@ function formatDuration(ms) {
 
 async function generateSummary() {
 
+    const total = passed + failed + skipped;
+
     // Title
     core.summary.addHeading('Playwright Test Summary');
 
-    // Summary table
-    core.summary.addHeading('Summary Table', 2);
+    //Summary Ditribution
+    //Passed  ████████████████████ 120
+    // Failed  █ 3
+    // Skipped █ 1
 
-    const total = passed + failed + skipped;
+    core.summary.addHeading('Summary Distribution', 2).createBarChart(passed, failed, skipped);
+
+
+    // Summary table
+    core.summary.addHeading('Detailed Table', 2);
+
+
+
 
     core.summary.addTable([
         [
@@ -111,9 +122,9 @@ async function generateSummary() {
         ],
         [
             ` ${total}`,
-            ` ${passed}(${((passed / total) * 100).toFixed(1)}%)`,
-            ` ${failed}(${((failed / total) * 100).toFixed(1)}%)`,
-            ` ${skipped}(${((skipped / total) * 100).toFixed(1)}%)`,
+            ` ${passed}`,
+            ` ${failed}`,
+            ` ${skipped}`,
         ],
     ]);
 
@@ -167,21 +178,8 @@ ${test.error}
     await core.summary.write();
 }
 
-function createBar(passed, failed, skipped) {
-    function createBar(value, max, color = '🟩') {
-        const width = 20;
-
-        const filled =
-            Math.round((value / max) * width);
-
-        return color.repeat(filled);
-    }
-
-    const max = Math.max(
-        passed,
-        failed,
-        skipped
-    );
+function createBarChart(passed, failed, skipped) {
+    const total = passed + failed + skipped;
 
     const markdown = `
 ## Test Results
@@ -190,6 +188,15 @@ Passed  ${createBar(passed, max, '🟩')} ${passed}
 Failed  ${createBar(failed, max, '🟥')} ${failed}
 Skipped ${createBar(skipped, max, '🟨')} ${skipped}
 `;
+}
+
+function createBar(value, max, color = '🟩') {
+    const width = 20;
+
+    const filled =
+        Math.round((value / max) * width);
+
+    return color.repeat(filled);
 }
 
 function createPieChart({
