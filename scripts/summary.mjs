@@ -99,6 +99,7 @@ async function generateSummary() {
 
     //Summary Ditribution
     core.summary.addHeading('Distribution', 2)
+    core.summary.addRaw(`Passing Rate: ${passPct}%\n`);
     const total = passed + failed + skipped;
 
     const WIDTH = 20; // total squares in the bar
@@ -116,7 +117,6 @@ async function generateSummary() {
         .addRaw(`>${'🟨'.repeat(skipSquares)} ${skipPct}% Skipped\n`)
         .write();
 
-
     // Summary table
     core.summary.addHeading('Summary Table', 2);
     core.summary.addTable([
@@ -132,6 +132,13 @@ async function generateSummary() {
             ` ${failed}`,
             ` ${skipped}`,
         ],
+        [
+            `100%`,
+            ` ${(passed / total) * 100}%`,
+            ` ${(failed / total) * 100}%`,
+            ` ${(skipped / total) * 100}%`,
+        ],
+
     ]);
 
     // Stack traces
