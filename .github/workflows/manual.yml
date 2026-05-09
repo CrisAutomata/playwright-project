@@ -33,6 +33,9 @@ jobs:
       run: npx playwright test
       continue-on-error: true
 
+    #check the results json is generated and wait for 5 seconds
+    - name: Check results.json
+      run: ls
 
 
     - name: Generate summary

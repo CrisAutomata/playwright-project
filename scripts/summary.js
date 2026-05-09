@@ -10,6 +10,9 @@ if (!fs.existsSync(REPORT_PATH)) {
 
 const report = JSON.parse(fs.readFileSync(REPORT_PATH, 'utf8'));
 
+console.log('cwd:', process.cwd());
+console.log('files:', fs.readdirSync(process.cwd()));
+
 let passed = 0;
 let failed = 0;
 let skipped = 0;
