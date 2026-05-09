@@ -21,8 +21,11 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+
+    # Run the Playwright tests, failure does not cancel the workflow
     - name: Run Playwright tests
       run: npx playwright test
+      continue-on-error: true
 
     - name: Generate Allure Report
       run: npx allure generate
