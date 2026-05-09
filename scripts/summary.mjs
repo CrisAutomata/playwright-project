@@ -1,10 +1,15 @@
-// scripts/summary.js
+import fs from 'fs';
+import path from 'path';
+import * as core from '@actions/core';
+import { fileURLToPath } from 'url';
 
-const fs = require('fs');
-const path = require('path');
-const core = require('@actions/core');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const REPORT_PATH = path.resolve(__dirname, '../test-results.json');
+const REPORT_PATH = path.resolve(
+    __dirname,
+    '../test-results.json'
+);
 
 if (!fs.existsSync(REPORT_PATH)) {
     console.error('Cannot find test-results.json');

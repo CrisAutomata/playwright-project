@@ -2,6 +2,7 @@
   "name": "playwright-project",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {},
   "keywords": [],
   "author": "",
