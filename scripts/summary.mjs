@@ -124,7 +124,8 @@ async function generateSummary() {
                 failed,
                 skipped,
             })
-        );
+        )
+        .write();
 
     // // Mermaid pie chart
     // core.summary.addHeading('Result Chart', 2);
