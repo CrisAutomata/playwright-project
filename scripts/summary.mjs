@@ -109,10 +109,6 @@ async function generateSummary() {
 
     // Summary table
     core.summary.addHeading('Detailed Table', 2);
-
-
-
-
     core.summary.addTable([
         [
             { data: 'Total', header: true },
@@ -184,17 +180,17 @@ function createBarChart(passed, failed, skipped) {
     const markdown = `
 ## Test Results
 
-Passed  ${createBar(passed, max, '🟩')} ${passed}
-Failed  ${createBar(failed, max, '🟥')} ${failed}
-Skipped ${createBar(skipped, max, '🟨')} ${skipped}
+Passed  ${createBar(passed, total, '🟩')} ${passed}
+Failed  ${createBar(failed, total, '🟥')} ${failed}
+Skipped ${createBar(skipped, total, '🟨')} ${skipped}
 `;
 }
 
-function createBar(value, max, color = '🟩') {
+function createBar(value, total, color = '🟩') {
     const width = 20;
 
     const filled =
-        Math.round((value / max) * width);
+        Math.round((value / total) * width);
 
     return color.repeat(filled);
 }
