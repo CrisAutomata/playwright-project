@@ -116,34 +116,15 @@ async function generateSummary() {
     ]);
 
     // barchart
-    core.summary.addHeading('Test Results', 2);
-    core.summary.addRaw(`
-<table>
-  <tr>
-    <td
-      style="
-        background:#ef4444;
-        color:white;
-        padding:6px 12px;
-        border-radius:6px 0 0 6px;
-      "
-    >
-      ${failed}
-    </td>
-
-    <td
-      style="
-        background:#22c55e;
-        color:white;
-        padding:6px 120px;
-        border-radius:0 6px 6px 0;
-      "
-    >
-      ${passed}
-    </td>
-  </tr>
-</table>
-`, true);
+    core.summary
+        .addHeading('Test Results', 2)
+        .addRaw(
+            createBar({
+                passed,
+                failed,
+                skipped,
+            })
+        );
 
     // // Mermaid pie chart
     // core.summary.addHeading('Result Chart', 2);
@@ -208,49 +189,29 @@ ${test.error}
     await core.summary.write();
 }
 
-function createBar(passed, failed) {
+function createBar(passed, failed, skipped) {
+    function createBar(value, max, color = '🟩') {
+        const width = 20;
 
-    const total = passed + failed;
+        const filled =
+            Math.round((value / max) * width);
 
-    const passedPercent =
-        (passed / total) * 100;
+        return color.repeat(filled);
+    }
 
-    const failedPercent =
-        (failed / total) * 100;
+    const max = Math.max(
+        passed,
+        failed,
+        skipped
+    );
 
-    return `
-  <div style="
-    width: 400px;
-    height: 28px;
-    display: flex;
-    overflow: hidden;
-    border-radius: 8px;
-    font-weight: 600;
-    font-family: sans-serif;
-  ">
-    <div style="
-      width: ${failedPercent}%;
-      background: #ef4444;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-    ">
-      ${failed}
-    </div>
+    const markdown = `
+## Test Results
 
-    <div style="
-      width: ${passedPercent}%;
-      background: #22c55e;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-    ">
-      ${passed}
-    </div>
-  </div>
-  `;
+Passed  ${createBar(passed, max, '🟩')} ${passed}
+Failed  ${createBar(failed, max, '🟥')} ${failed}
+Skipped ${createBar(skipped, max, '🟨')} ${skipped}
+`;
 }
 
 function createPieChart({
