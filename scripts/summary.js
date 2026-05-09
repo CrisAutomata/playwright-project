@@ -1,5 +1,8 @@
+// scripts/summary.js
+
 const fs = require('fs');
 const path = require('path');
+const core = require('@actions/core');
 
 const REPORT_PATH = path.resolve(__dirname, '../test-results.json');
 
@@ -13,27 +16,54 @@ const report = JSON.parse(fs.readFileSync(REPORT_PATH, 'utf8'));
 let passed = 0;
 let failed = 0;
 let skipped = 0;
-let duration = 0;
 
-function walkSuites(suites) {
+const failedTests = [];
+const slowTests = [];
+
+function walkSuites(suites, parent = '') {
     for (const suite of suites || []) {
 
-        // nested suites
-        walkSuites(suite.suites);
+        const currentSuite = parent
+            ? `${parent} > ${suite.title}`
+            : suite.title;
+
+        walkSuites(suite.suites, currentSuite);
 
         for (const spec of suite.specs || []) {
             for (const test of spec.tests || []) {
 
-                duration += test.results?.reduce(
-                    (sum, r) => sum + (r.duration || 0),
-                    0
-                ) || 0;
+                const lastResult =
+                    test.results?.[test.results.length - 1];
 
-                const status = test.results?.[test.results.length - 1]?.status;
+                const duration =
+                    test.results?.reduce(
+                        (sum, r) => sum + (r.duration || 0),
+                        0
+                    ) || 0;
+
+                const status = lastResult?.status;
+
+                const testName =
+                    `${currentSuite} > ${spec.title}`
+                        .replace(/^ > /, '');
 
                 if (status === 'passed') passed++;
                 else if (status === 'failed') failed++;
                 else if (status === 'skipped') skipped++;
+
+                slowTests.push({
+                    name: testName,
+                    duration,
+                });
+
+                if (status === 'failed') {
+                    failedTests.push({
+                        name: testName,
+                        error:
+                            lastResult?.error?.message ||
+                            'Unknown error',
+                    });
+                }
             }
         }
     }
@@ -41,38 +71,104 @@ function walkSuites(suites) {
 
 walkSuites(report.suites);
 
+slowTests.sort((a, b) => b.duration - a.duration);
+
 function formatDuration(ms) {
     const sec = Math.floor(ms / 1000);
-    const min = Math.floor(sec / 60);
-    const remainSec = sec % 60;
 
-    return `${min}m ${remainSec}s`;
+    const h = Math.floor(sec / 3600);
+    const m = Math.floor((sec % 3600) / 60);
+    const s = sec % 60;
+
+    if (h > 0) {
+        return `${h}h ${m}m ${s}s`;
+    }
+
+    return `${m}m ${s}s`;
 }
 
-const markdown = `
-# Playwright Test Summary
+async function generateSummary() {
 
-| Metric | Value |
-|---|---|
-| ✅ Passed | ${passed} |
-| ❌ Failed | ${failed} |
-| ⏭ Skipped | ${skipped} |
-| ⏱ Duration | ${formatDuration(duration)} |
+    // Title
+    core.summary.addHeading('Playwright Test Summary');
 
----
+    // Summary table
+    core.summary.addHeading('Summary Table', 2);
 
-## Report
+    core.summary.addTable([
+        [
+            { data: 'Suite', header: true },
+            { data: 'Passed', header: true },
+            { data: 'Failed', header: true },
+            { data: 'Skipped', header: true },
+        ],
+        [
+            'E2E Tests',
+            `✅ ${passed}`,
+            `❌ ${failed}`,
+            `⏭ ${skipped}`,
+        ],
+    ]);
 
-- [Open Playwright HTML Report](./playwright-report/index.html)
-`;
+    // Mermaid pie chart
+    core.summary.addHeading('Result Chart', 2);
 
-if (process.env.GITHUB_STEP_SUMMARY) {
-    fs.appendFileSync(
-        process.env.GITHUB_STEP_SUMMARY,
-        markdown
-    );
+    core.summary.addCodeBlock(`
+pie
+    title Test Results
+    "Passed" : ${passed}
+    "Failed" : ${failed}
+    "Skipped" : ${skipped}
+`, 'mermaid');
 
-    console.log('Summary written to GitHub Actions summary');
-} else {
-    console.log(markdown);
+    // Persistent Failures
+    core.summary.addHeading('Persistent Failures', 2);
+
+    if (failedTests.length === 0) {
+        core.summary.addRaw('✅ No failed tests\n');
+    } else {
+        core.summary.addList(
+            failedTests.map(t => t.name)
+        );
+    }
+
+    // Top Slow Tests
+    core.summary.addHeading('Top Slow Tests', 2);
+
+    core.summary.addTable([
+        [
+            { data: 'Test', header: true },
+            { data: 'Duration', header: true },
+        ],
+        ...slowTests
+            .slice(0, 5)
+            .map(t => [
+                t.name,
+                formatDuration(t.duration),
+            ]),
+    ]);
+
+    // Stack traces
+    if (failedTests.length > 0) {
+
+        core.summary.addHeading('Stack Traces', 2);
+
+        for (const test of failedTests) {
+
+            core.summary.addRaw(`
+<details>
+<summary>${test.name}</summary>
+
+\`\`\`text
+${test.error}
+\`\`\`
+
+</details>
+`);
+        }
+    }
+
+    await core.summary.write();
 }
+
+generateSummary();
