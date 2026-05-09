@@ -24,7 +24,7 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test
 
-    -name: Generate Allure Report
+    - name: Generate Allure Report
       run: npx allure generate
   
     - name: Run Allure Action
