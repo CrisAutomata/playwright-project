@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const REPORT_PATH = path.join(process.cwd(), 'test-results.json');
+const REPORT_PATH = path
 
 if (!fs.existsSync(REPORT_PATH)) {
     console.error('Cannot find test-results.json');

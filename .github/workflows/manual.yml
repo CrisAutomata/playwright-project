@@ -30,7 +30,7 @@ jobs:
 
     # Run the Playwright tests, failure does not cancel the workflow
     - name: Run Playwright tests
-      run: npx playwright test --reporter=json
+      run: npx playwright test
       continue-on-error: true
 
 
