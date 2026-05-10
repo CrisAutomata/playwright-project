@@ -126,11 +126,8 @@ async function generateSummary() {
     //     .write();
 
 
-    for (let i = 0; i < height - 1; i++) {
+    for (let i = 0; i < height; i++) {
         const row = blocks.slice(i * width, (i + 1) * width).join("");
-        if (i === 0) {
-            output += `${row}\n`;
-        }
         output += row + "\n";
     }
 
