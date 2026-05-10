@@ -152,7 +152,7 @@ async function generateSummary() {
 
     // Title
     core.summary.addHeading(`MOA Test Summary: ${health}`);
-    core.summary.addRaw(`Passed: ${passPct}% 🟩, Failed: ${failPct}% 🟥, Skipped: ${skipPct}% 🟨`);
+    core.summary.addCodeBlock(`Passed: ${passPct}% 🟩, Failed: ${failPct}% 🟥, Skipped: ${skipPct}% 🟨`, 'javascript')
     core.summary.addRaw('\n\n');
     core.summary.addRaw(output).write();
     core.summary.addRaw('\n');
