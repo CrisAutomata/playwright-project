@@ -163,11 +163,13 @@ async function generateSummary() {
 Failed: ${failPct}% 🟥
 Skipped: ${skipPct}% 🟨`
         , 'javascript');
+
+    core.summary.addHeading('Overview', 2)
     core.summary.addRaw(output).write();
     core.summary.addRaw('\n');
 
 
-    core.summary.addHeading('Overview', 2)
+    core.summary.addHeading('Test Results', 3)
     core.summary.addTable([
         [
             { data: 'Status', header: true },
