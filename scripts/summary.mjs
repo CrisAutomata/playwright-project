@@ -140,7 +140,7 @@ async function generateSummary() {
     core.summary.addRaw('\n');
 
 
-    core.summary.addHeading('Test Results', 2)
+    core.summary.addHeading('Overview', 2)
     core.summary.addTable([
         [
             { data: 'Status', header: true },

@@ -59,8 +59,8 @@ jobs:
     - name: Check results.json
       run: cd ./test-results && ls
 
-
-
+    - name: Generate my summary
+      run: node scripts/summary.mjs
 
     - name: Test Report dorny/test-reporter@v3
       uses: dorny/test-reporter@v3
@@ -79,9 +79,6 @@ jobs:
       if: always() # always run even if the previous step fails
       with:
         report_paths: '**/test-results/results.xml'
-
-    - name: Generate my summary
-      run: node scripts/summary.mjs
 
     - name: Generate Allure Report
       run: npx allure generate
