@@ -138,7 +138,7 @@ async function generateSummary() {
     // > 60%: warning
     // < 60%: require attention
     // < 40%: bad
-    const health = "";
+    let health = "";
     if (passPct > 80) {
         health = "Healthy 😊💚";
     } else if (passPct > 60) {
