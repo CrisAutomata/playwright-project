@@ -144,7 +144,7 @@ async function generateSummary() {
         health = "Healthy 😊💚";
         compare = "> 80%";
     } else if (passPct > 60) {
-        health = "Under the weather 🤒🧡";
+        health = "Under_the_weather 🤒🧡";
         compare = "< 80%";
     } else if (passPct > 40) {
         health = "Fever 😵‍💫❤️‍🩹";
