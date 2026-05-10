@@ -133,7 +133,8 @@ async function generateSummary() {
         output += row + "\n";
     }
 
-    core.summary.addRaw(output);
+    core.summary.addRaw(output).write();
+    core.summary.addRaw('\n');
 
 
     core.summary.addTable([
