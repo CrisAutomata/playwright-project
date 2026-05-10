@@ -129,7 +129,7 @@ async function generateSummary() {
     for (let i = 0; i < height; i++) {
         const row = blocks.slice(i * width, (i + 1) * width).join("");
         if (i === 0) {
-            output += `${row}\n\n`;
+            output += `${row}\n`;
         }
         output += row + "\n";
     }
@@ -152,6 +152,8 @@ async function generateSummary() {
 
     // Title
     core.summary.addHeading(`MOA Test Summary: ${health}`);
+    core.summary.addRaw(`Passed: ${passPct}% 🟩, Failed: ${failPct}% 🟥, Skipped: ${skipPct}% 🟨`);
+    core.summary.addRaw('\n\n');
     core.summary.addRaw(output).write();
     core.summary.addRaw('\n');
 
