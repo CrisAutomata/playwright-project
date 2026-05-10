@@ -1,8 +1,5 @@
 
 # Overview
-
-## Test Results
-
 To test different filter combinations, we can use test.each to run the same test with different data sets
 
 This allows us to easily add more test cases by simply adding more objects to the array without having to duplicate the test code
