@@ -120,7 +120,7 @@ async function generateSummary() {
     const failPct = ((failed / total) * 100).toFixed(2);
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
-    core.summary.addHeading('Summary Results', 2)
+
     // core.summary
     //     .addRaw(`▶︎${'🟩'.repeat(passSquares)}`)
     //     .addRaw(`▶︎${'🟥'.repeat(failSquares)}`)
@@ -130,13 +130,14 @@ async function generateSummary() {
 
     for (let i = 0; i < height; i++) {
         const row = blocks.slice(i * width, (i + 1) * width).join("");
-        output += row + "\n";
+        output += row + "\n\n";
     }
 
     core.summary.addRaw(output).write();
-    core.summary.addRaw('\n');
+    core.summary.addRaw('\n\n');
 
 
+    core.summary.addHeading('Test Results', 2)
     core.summary.addTable([
         [
             { data: '✅ Passed', header: true },
@@ -160,6 +161,9 @@ async function generateSummary() {
         ],
 
     ]);
+
+
+
 
     // Stack traces
     if (failedTests.length > 0) {
