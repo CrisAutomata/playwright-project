@@ -94,8 +94,6 @@ function formatDuration(ms) {
 
 async function generateSummary() {
 
-    // Title
-    core.summary.addHeading('MOA Test Summary');
 
     //Summary Ditribution
 
@@ -136,6 +134,24 @@ async function generateSummary() {
         output += row + "\n";
     }
 
+    // > 80%: healthy
+    // > 60%: warning
+    // < 60%: require attention
+    // < 40%: bad
+    const health = "";
+    if (passPct > 80) {
+        health += "Healthy 😊💚";
+    } else if (passPct > 60) {
+        health += "Under the weather 🤒🧡";
+    } else if (passPct > 40) {
+        health += "Fever 😵‍💫❤️‍🩹";
+    } else {
+        health += "Emergency 🚑🚨";
+    }
+
+
+    // Title
+    core.summary.addHeading(`MOA Test Summary: ${health}`);
     core.summary.addRaw(output).write();
     core.summary.addRaw('\n');
 
@@ -146,11 +162,11 @@ async function generateSummary() {
             { data: 'Status', header: true },
             { data: 'Count', header: true },
             { data: 'Rate', header: true },
-        ]
+        ],
         [
-        { data: '✅ Passed', header: true },
-        { data: ` ${passed}` },
-        { data: ` ${passPct}%` },
+            { data: '✅ Passed', header: true },
+            { data: ` ${passed}` },
+            { data: ` ${passPct}%` },
         ],
         [
             { data: '❌ Failed', header: true },
