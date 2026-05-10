@@ -102,7 +102,7 @@ async function generateSummary() {
     const total = passed + failed + skipped;
 
     let output = "";
-    const width = 20;
+    const width = 15;
     const height = 4;
 
     const totalSquares = width * height; // total squares in the bar
@@ -131,7 +131,7 @@ async function generateSummary() {
     for (let i = 0; i < height; i++) {
         const row = blocks.slice(i * width, (i + 1) * width).join("");
         if (i === 0) {
-            output += `▶︎${row}\n\n`;
+            output += `${row}\n\n`;
         }
         output += row + "\n";
     }
