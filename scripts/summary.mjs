@@ -110,33 +110,32 @@ async function generateSummary() {
     const failPct = ((failed / total) * 100).toFixed(2);
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
-    core.summary.addHeading(`Passing Rate: ${passPct}%`, 2)
+    core.summary.addHeading('Summary Results', 2)
     core.summary
-        .addRaw(`▶︎${'🟩'.repeat(passSquares)} ${passPct}% Passed\n\n`)
-        .addRaw(`▶︎${'🟥'.repeat(failSquares)} ${failPct}% Failed\n`)
-        .addRaw(`▶︎${'🟨'.repeat(skipSquares)} ${skipPct}% Skipped\n`)
+        .addRaw(`▶︎${'🟩'.repeat(passSquares)}`)
+        .addRaw(`▶︎${'🟥'.repeat(failSquares)}`)
+        .addRaw(`▶︎${'🟨'.repeat(skipSquares)}`)
         .write();
-
-    // Summary table
-    core.summary.addHeading('Summary Results', 2);
     core.summary.addTable([
         [
-            { data: 'Total', header: true },
             { data: '✅ Passed', header: true },
-            { data: '♦️ Failed', header: true },
-            { data: '🟠 Skipped', header: true },
+            { data: ` ${passed}` },
+            { data: ` ${passPct}%` },
         ],
         [
-            ` ${total}`,
-            ` ${passed}`,
-            ` ${failed}`,
-            ` ${skipped}`,
+            { data: '❌ Failed', header: true },
+            { data: ` ${failed}` },
+            { data: ` ${failPct}%` },
         ],
         [
-            `100%`,
-            ` ${passPct}%`,
-            ` ${failPct}%`,
-            ` ${skipPct}%`,
+            { data: '⏩ Skipped', header: true },
+            { data: ` ${skipped}` },
+            { data: ` ${skipPct}%` },
+        ],
+        [
+            { data: 'Total', header: true },
+            { data: ` ${total}` },
+            { data: '100%' },
         ],
 
     ]);
