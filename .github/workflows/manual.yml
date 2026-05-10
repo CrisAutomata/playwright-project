@@ -57,7 +57,7 @@ jobs:
 
     #check the results json is generated and wait for 5 seconds
     - name: Check results.json
-      run: ls
+      run: cd ./test-results && ls
 
 
     # - name: Generate summary
@@ -69,10 +69,9 @@ jobs:
       if: always()      # run this step even if previous step failed
       with:
         name: Playwright Tests            # Name of the check run which will be created
-        path: /test-results/test-results.json    # Path to test results
+        path: ./test-results/test-results.json    # Path to test results
         list-suites: 'all'
         list-tests: 'all'
-        list-files: 'all'
         reporter: mocha-json #jest-junit        # Format of test results
         max-annotations: '50'
         fail-on-error: false
