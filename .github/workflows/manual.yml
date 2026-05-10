@@ -63,6 +63,34 @@ jobs:
     - name: Generate summary
       run: node scripts/summary.mjs
 
+
+    - name: Test Report
+      uses: dorny/test-reporter@v3
+      if: ${{ !cancelled() }}       # run this step even if previous step failed
+      with:
+        name: JEST Tests            # Name of the check run which will be created
+        path: test-results/results.xml    # Path to test results
+        reporter: jest-junit        # Format of test results
+
+
+
+    - name: Publish dorny/test-reporter@v2
+      uses: dorny/test-reporter@v2
+      if: always()
+      with:
+        name: Playwright Tests
+        path: test-results/results.xml
+        reporter: java-junit    
+
+
+    - name: Publish Test Report action-junit-report@v6
+      uses: mikepenz/action-junit-report@v6
+      if: success() || failure() # always run even if the previous step fails
+      with:
+        report_paths: '**/test-results/results.xml'
+
+
+
     - name: Generate Allure Report
       run: npx allure generate
   

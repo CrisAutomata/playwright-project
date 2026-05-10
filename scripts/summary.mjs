@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const REPORT_PATH = path.resolve(
     __dirname,
-    '../test-results.json'
+    '../test-results/test-results.json'
 );
 
 if (!fs.existsSync(REPORT_PATH)) {
