@@ -140,13 +140,13 @@ async function generateSummary() {
     // < 40%: bad
     const health = "";
     if (passPct > 80) {
-        health += "Healthy 😊💚";
+        health = "Healthy 😊💚";
     } else if (passPct > 60) {
-        health += "Under the weather 🤒🧡";
+        health = "Under the weather 🤒🧡";
     } else if (passPct > 40) {
-        health += "Fever 😵‍💫❤️‍🩹";
+        health = "Fever 😵‍💫❤️‍🩹";
     } else {
-        health += "Emergency 🚑🚨";
+        health = "Emergency 🚑🚨";
     }
 
 
