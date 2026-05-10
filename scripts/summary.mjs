@@ -101,21 +101,41 @@ async function generateSummary() {
 
     const total = passed + failed + skipped;
 
-    const WIDTH = 20; // total squares in the bar
-    const passSquares = Math.round((passed / total) * WIDTH);
-    const failSquares = Math.round((failed / total) * WIDTH);
-    const skipSquares = WIDTH - passSquares - failSquares;
+    let output = "";
+    const width = 20;
+    const height = 4;
+
+    const totalSquares = width * height; // total squares in the bar
+    const passSquares = Math.round((passed / total) * totalSquares);
+    const failSquares = Math.round((failed / total) * totalSquares);
+    const skipSquares = totalSquares - passSquares - failSquares;
+
+    const blocks = [
+        ...Array(passSquares).fill("🟩"),
+        ...Array(failSquares).fill("🟥"),
+        ...Array(skipSquares).fill("🟨"),
+    ];
 
     const passPct = ((passed / total) * 100).toFixed(2);
     const failPct = ((failed / total) * 100).toFixed(2);
     const skipPct = ((skipped / total) * 100).toFixed(2);
 
     core.summary.addHeading('Summary Results', 2)
-    core.summary
-        .addRaw(`▶︎${'🟩'.repeat(passSquares)}`)
-        .addRaw(`▶︎${'🟥'.repeat(failSquares)}`)
-        .addRaw(`▶︎${'🟨'.repeat(skipSquares)}`)
-        .write();
+    // core.summary
+    //     .addRaw(`▶︎${'🟩'.repeat(passSquares)}`)
+    //     .addRaw(`▶︎${'🟥'.repeat(failSquares)}`)
+    //     .addRaw(`▶︎${'🟨'.repeat(skipSquares)}`)
+    //     .write();
+
+
+    for (let i = 0; i < height; i++) {
+        const row = blocks.slice(i * width, (i + 1) * width).join("");
+        output += row + "\n";
+    }
+
+    core.summary.addRaw(output);
+
+
     core.summary.addTable([
         [
             { data: '✅ Passed', header: true },
