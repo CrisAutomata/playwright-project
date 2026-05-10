@@ -139,21 +139,28 @@ async function generateSummary() {
     // < 60%: require attention
     // < 40%: bad
     let health = "";
+    let compare = "";
     if (passPct > 80) {
         health = "Healthy 😊💚";
+        compare = "> 80%";
     } else if (passPct > 60) {
         health = "Under the weather 🤒🧡";
+        compare = "< 80%";
     } else if (passPct > 40) {
         health = "Fever 😵‍💫❤️‍🩹";
+        compare = "< 60%";
     } else {
         health = "Emergency 🚑🚨";
+        compare = "< 40%";
     }
 
 
     // Title
-    core.summary.addHeading(`MOA Test Summary: ${health}`);
-    core.summary.addCodeBlock(`Passed: ${passPct}% 🟩, Failed: ${failPct}% 🟥, Skipped: ${skipPct}% 🟨`, 'javascript')
+    core.summary.addHeading(`MOA Test Summary`);
+    core.summary.addRaw(`Status:${health} because pass rate: ${passPct}% ${compare}`, 'javascript')
     core.summary.addRaw('\n\n');
+    core.summary.addCodeBlock(`Passed: ${passPct}% 🟩, Failed: ${failPct}% 🟥, Skipped: ${skipPct}% 🟨`, 'javascript')
+    core.summary.addRaw('\n');
     core.summary.addRaw(output).write();
     core.summary.addRaw('\n');
 
