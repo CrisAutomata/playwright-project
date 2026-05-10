@@ -143,9 +143,14 @@ async function generateSummary() {
     core.summary.addHeading('Test Results', 2)
     core.summary.addTable([
         [
-            { data: '✅ Passed', header: true },
-            { data: ` ${passed}` },
-            { data: ` ${passPct}%` },
+            { data: 'Status', header: true },
+            { data: 'Count', header: true },
+            { data: 'Rate', header: true },
+        ]
+        [
+        { data: '✅ Passed', header: true },
+        { data: ` ${passed}` },
+        { data: ` ${passPct}%` },
         ],
         [
             { data: '❌ Failed', header: true },
@@ -168,25 +173,25 @@ async function generateSummary() {
 
 
 
-    // Stack traces
-    if (failedTests.length > 0) {
+    //     // Stack traces
+    //     if (failedTests.length > 0) {
 
-        core.summary.addHeading('Stack Traces', 2);
+    //         core.summary.addHeading('Stack Traces', 2);
 
-        for (const test of failedTests) {
+    //         for (const test of failedTests) {
 
-            core.summary.addRaw(`
-<details>
-<summary>${test.name}</summary>
+    //             core.summary.addRaw(`
+    // <details>
+    // <summary>${test.name}</summary>
 
-\`\`\`text
-${test.error}
-\`\`\`
+    // \`\`\`text
+    // ${test.error}
+    // \`\`\`
 
-</details>
-`);
-        }
-    }
+    // </details>
+    // `);
+    //         }
+    //     }
 
     // // Persistent Failures
     // core.summary.addHeading('Persistent Failures', 2);
@@ -199,20 +204,20 @@ ${test.error}
     //     );
     // }
 
-    // Top Slow Tests
-    core.summary.addHeading('Top Slow Tests', 2);
-    core.summary.addTable([
-        [
-            { data: 'Test', header: true },
-            { data: 'Duration', header: true },
-        ],
-        ...slowTests
-            .slice(0, 5)
-            .map(t => [
-                t.name,
-                formatDuration(t.duration),
-            ]),
-    ]);
+    // // Top Slow Tests
+    // core.summary.addHeading('Top Slow Tests', 2);
+    // core.summary.addTable([
+    //     [
+    //         { data: 'Test', header: true },
+    //         { data: 'Duration', header: true },
+    //     ],
+    //     ...slowTests
+    //         .slice(0, 5)
+    //         .map(t => [
+    //             t.name,
+    //             formatDuration(t.duration),
+    //         ]),
+    // ]);
 
 
 
