@@ -130,11 +130,14 @@ async function generateSummary() {
 
     for (let i = 0; i < height; i++) {
         const row = blocks.slice(i * width, (i + 1) * width).join("");
-        output += row + "\n\n";
+        if (i === 0) {
+            output += `▶︎${row}\n\n`;
+        }
+        output += row + "\n";
     }
 
     core.summary.addRaw(output).write();
-    core.summary.addRaw('\n\n');
+    core.summary.addRaw('\n');
 
 
     core.summary.addHeading('Test Results', 2)
